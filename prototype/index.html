@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piece Prototype</title>
+    <style>
+      body { margin: 0; background:#111; color:#eee; font-family: system-ui, sans-serif; }
+      .wrap { display:flex; gap:16px; padding:12px; align-items:flex-start; }
+      canvas { background:#1c1f26; border:1px solid #3b4252; image-rendering:pixelated; }
+      .panel { max-width: 360px; line-height:1.55; font-size:14px; }
+      kbd { background:#2d3340; border:1px solid #4d5668; border-bottom-width:2px; padding:1px 5px; border-radius:4px; }
+      .ok { color:#7ee787; }
+      .warn { color:#f2cc60; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <canvas id="game" width="640" height="400"></canvas>
+      <div class="panel">
+        <h2>縦切りプロトタイプ（ブラウザ）</h2>
+        <p>
+          <kbd>WASD</kbd> 移動 / <kbd>Space</kbd> ジャンプ / <kbd>J</kbd> アクション / <kbd>K</kbd> ガード
+        </p>
+        <p>
+          <kbd>1</kbd> さしかえ（アクション=攻撃⇔ジャンプ）
+          <br />
+          <kbd>2</kbd> まつ（次のアクションを0.6秒遅延）
+          <br />
+          <kbd>3</kbd> くり返す（次アクションを2連続）
+          <br />
+          <kbd>H</kbd> 幽霊ヒント / <kbd>R</kbd> リトライ
+        </p>
+        <ul>
+          <li>見下ろし + 疑似3Dジャンプ（Z軸）</li>
+          <li>低障害はジャンプで越えられる / 高障害は不可</li>
+          <li>敵は被弾後に短い無敵時間</li>
+        </ul>
+        <p id="status" class="ok"></p>
+        <p id="piece" class="warn"></p>
+        <p id="ghost"></p>
+        <p id="result"></p>
+        <p id="stage"></p>
+      </div>
+    </div>
+    <script src="./game.js"></script>
+  </body>
+</html>
